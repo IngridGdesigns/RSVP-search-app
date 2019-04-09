@@ -1,26 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Guest from './Guest';
 
 const GuestList = props => 
     <ul> 
         { props.guests.map((guest, index) =>
         // when mapping you need a unique key value
-        <li key={index}> 
-            <span>{guest.name}</span>
-            <label>
-            <input type="checkbox"checked={guest.isConfirmed}/> Confirmed
-            </label>
-            <button>edit</button>
-            <button>remove</button>
-        </li> 
+        <Guest key={index} name={guest.name} isConfirmed={guest.isConfirmed}/> 
         )}
-  </ul>;
+  </ul>
 
 GuestList.propTypes = {
     guests: PropTypes.array.isRequired
 }
 
-export default GuestList
+export default GuestList;
 {/* <li className="pending"><span>Safia</span></li>
     <li className="responded"><span>Iver</span>
       <label>
