@@ -8,33 +8,44 @@ class App extends Component {
         guests: [
           {
             name: 'Jaime',
-            isConfirmed: false
+            isConfirmed: false,
+            isEditing: false
           },
           {
             name: 'Ed',
-            isConfirmed: false
+            isConfirmed: false,
+            isEditing: false
           },
           {
             name: 'Lina',
-            isConfirmed: false
+            isConfirmed: false,
+            isEditing: true
           }
         ]
     }
   //HANDLER to confirm guests - it will toggle the confirmation at the specified index
   //map method to change one guest in the array
-  toggleConfirmationAt = indexToChange => {
+  toggleGuestPropertyAt = (property, indexToChange) => {
     this.setState({
             guests: this.state.guests.map((guest, index) => {
               if (index === indexToChange) {
                 return {
                   ...guest,
-                  isConfirmed: !guest.isConfirmed
+                  [property]: !guest[property]
                 }
               }
               return guest;
             })
         })
       };
+    
+    toggleConfirmationAt = index =>
+      this.toggleGuestPropertyAt('isConfirmed', index);
+
+    toggleEditingAt = index =>
+      this.toggleGuestPropertyAt('isEditing', index);
+
+  
 
   getTotalInvited = () => this.state.guests.length; 
   //getAttendingGuests = () =>
@@ -77,7 +88,9 @@ class App extends Component {
  
         <GuestList 
         guests={this.state.guests}
-        toggleConfirmationAt={this.toggleConfirmationAt}/>
+        toggleConfirmationAt={this.toggleConfirmationAt}
+        toggleEditingAt={this.toggleEditingAt}
+        />
       </div>
  
     );
