@@ -4,7 +4,9 @@ import Guest from './Guest';
 
 const GuestList = props => 
     <ul> 
-        { props.guests.map((guest, index) =>
+        { props.guests
+        .filter(guest => !props.isFiltered || guest.isConfirmed)
+        .map((guest, index) =>
     // when mapping you need a unique key value
     //key property is used to help identify which items have changed, added, or removed
         <Guest key={index} 
@@ -24,7 +26,8 @@ GuestList.propTypes = {
     guests: PropTypes.array.isRequired,
     toggleConfirmationAt: PropTypes.func.isRequired,
     toggleEditingAt: PropTypes.func.isRequired,
-    setNameAt: PropTypes.func.isRequired
+    setNameAt: PropTypes.func.isRequired,
+    isFiltered: PropTypes.func.isRequired
 }
 
 export default GuestList;
