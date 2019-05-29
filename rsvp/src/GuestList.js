@@ -18,6 +18,7 @@ const GuestList = props =>
             setName={text => props.setNameAt(text, index)}
       //this function accepts new name and sets the guest state
       //we need the index to find the right name to change
+            handleRemove={() => props.removeGuestAt(index)}
             /> 
         )}
     </ul>;
@@ -27,7 +28,8 @@ GuestList.propTypes = {
     toggleConfirmationAt: PropTypes.func.isRequired,
     toggleEditingAt: PropTypes.func.isRequired,
     setNameAt: PropTypes.func.isRequired,
-    isFiltered: PropTypes.func.isRequired
+    isFiltered: PropTypes.func.isRequired,
+    removeGuestAt: PropTypes.func.isRequired
 }
 
 export default GuestList;
