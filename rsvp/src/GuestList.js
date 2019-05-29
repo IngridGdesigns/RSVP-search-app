@@ -13,7 +13,9 @@ const GuestList = props =>
             isEditing={guest.isEditing}
             handleConfirmation={() => props.toggleConfirmationAt(index)} 
             handleToggleEditing={() => props.toggleEditingAt(index)}
-
+            setName={text => props.setNameAt(text, index)}
+      //this function accepts new name and sets the guest state
+      //we need the index to find the right name to change
             /> 
         )}
     </ul>;
@@ -21,11 +23,12 @@ const GuestList = props =>
 GuestList.propTypes = {
     guests: PropTypes.array.isRequired,
     toggleConfirmationAt: PropTypes.func.isRequired,
-    toggleEditingAt: PropTypes.func.isRequired
+    toggleEditingAt: PropTypes.func.isRequired,
+    setNameAt: PropTypes.func.isRequired
 }
 
 export default GuestList;
-{/* <li className="pending"><span>Safia</span></li>
+/* <li className="pending"><span>Safia</span></li>
     <li className="responded"><span>Iver</span>
       <label>
         <input type="checkbox" checked/> Confirmed
@@ -40,4 +43,4 @@ export default GuestList;
       </label>
       <button>edit</button>
       <button>remove</button>
-    </li> */}
+    </li> */

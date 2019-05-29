@@ -39,6 +39,21 @@ class App extends Component {
         })
       };
     
+      setNameAt = (name, indexToChange) => {
+        this.setState({
+                guests: this.state.guests.map((guest, index) => {
+                  if (index === indexToChange) {
+                    return {
+                      ...guest,
+                     name
+                     //becuz name is the name of the property you can use the
+                    }
+                  }
+                  return guest;
+                })
+            })
+          };
+
     toggleConfirmationAt = index =>
       this.toggleGuestPropertyAt('isConfirmed', index);
 
@@ -90,6 +105,7 @@ class App extends Component {
         guests={this.state.guests}
         toggleConfirmationAt={this.toggleConfirmationAt}
         toggleEditingAt={this.toggleEditingAt}
+        setNameAt={this.setNameAt}
         />
       </div>
  

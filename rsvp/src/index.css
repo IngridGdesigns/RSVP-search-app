@@ -64,7 +64,7 @@ form {
 form button {
   padding: 0 1em;
   font-size: 1em;
-  background: #7bcbc4;
+  background: tomato;
   border-radius: .2em;
 }
 
@@ -146,7 +146,7 @@ li button {
   border-radius: .3em;
   padding: .4em .6em;
   color: white;
-  background: #58b7cd;
+  background: #c24fa7;
 }
 
 li button:last-child {
@@ -197,7 +197,7 @@ td:last-child {
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
   transition: 0.4s;
-  color: rgba(88, 183, 205, 1);
+  color: rgb(88, 115, 205);
 }
 /* =================================
   Media Queries
